@@ -6,12 +6,15 @@ import { ContactListItem } from '../ContactListItem/ContactListItem';
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
+  console.log(contacts);
+  console.log(filter);
   const visibleContacts = !filter
     ? contacts
     : contacts.filter(contact =>
         contact.name.toLowerCase().includes(filter.toLowerCase())
       );
-
+  console.log(visibleContacts);
+  console.log(visibleContacts.length);
   return (
     <>
       <ul className={css.contactList}>
