@@ -6,9 +6,11 @@ import { ContactListItem } from '../ContactListItem/ContactListItem';
 export const ContactList = () => {
   const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
-  const visibleContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
-  );
+  const visibleContacts = !filter
+    ? contacts
+    : contacts.filter(contact =>
+        contact.name.toLowerCase().includes(filter.toLowerCase())
+      );
 
   return (
     <>
